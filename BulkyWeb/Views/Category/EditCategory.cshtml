@@ -1,0 +1,31 @@
+﻿@model Category
+
+<form class="edit-form" method="post">
+    <div class="input1-div input-div">
+        <label asp-for="Name"></label>
+        <input class="name-input" asp-for="Name" value="" />
+        <span asp-validation-for="Name" style="color: #e92525"></span>
+    </div>
+    <div class="input2-div input-div">
+        <label asp-for="DisplayOrder"></label>
+        <input class="displayOrder-input" asp-for="DisplayOrder" value="@Model.DisplayOrder" />
+    </div>
+    <button class="submit-btn" type="submit">Edit</button>
+</form>
+
+<style>
+    .input-div {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .name-input, .displayOrder-input {
+        width: 500px;
+    }
+</style>
+
+@section Scripts {
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}

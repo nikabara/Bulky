@@ -1,0 +1,57 @@
+﻿@model List<Category>
+
+<section class="main">
+    <div class="main-top">
+        <h1 class="category-name">Category List</h1>
+        <a class="category-add-btn" asp-controller="Category" asp-action="CreateCategory">Add category</a>
+        @*<button type="button" onclick="location.href='@Url.Action("CreateCategory","Category")'"> Button name</button>*@
+    </div>
+
+    <div class="category-card-holder">
+        @foreach (var item in Model)
+        {
+            <div class="category-card">
+                <h4 class="category-card-genre">@item.Name</h4>
+                <h4 class="category-card-displayOrder">ID : @item.DisplayOrder</h4>
+               
+                <div class="modify-actions-div">
+                    <a asp-controller="Category" asp-action="DeleteCategory">Delete</a>
+                    <a asp-controller="Category" asp-action="EditCategory" asp-route-id="@item.Id">Edit</a>
+                </div>
+            </div>
+        }
+    </div>
+</section>
+
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+    .main-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .category-card-holder {
+        background-color: black;
+
+        display: flex;
+        align-items: center;
+
+        flex-wrap: wrap;
+    }
+    .category-card {
+        background-color: rgb(209, 209, 209);
+        border: solid black 1px;
+
+        width: 130px;
+        height: 130px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+</style>

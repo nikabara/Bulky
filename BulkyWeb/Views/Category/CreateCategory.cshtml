@@ -1,0 +1,46 @@
+﻿@model Category
+
+<form class="main" method="post">
+    <h1 class="main-text">Create Category</h1>
+
+    <div class="error-summery-div" asp-validation-summary="All" style="color: #e92525"></div>
+    <div class="input1-div input-div">
+        <label asp-for="Name"></label>
+        <input class="name-input" asp-for="Name" value="" />
+        <span asp-validation-for="Name" style="color: #e92525"></span>
+    </div>
+    <div class="input2-div input-div">
+        <label asp-for="DisplayOrder"></label>
+        <input class="displayOrder-input" asp-for="DisplayOrder" value="" />
+    </div>
+
+    <div class="navigation-btns-div">
+        <button type="submit" class="create-btn">create</button>
+        <a asp-controller="Category" asp-action="Index" class="navigate-back">Go back</a>
+    </div>
+</form>
+
+<style>
+    .input-div {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .name-input, .displayOrder-input {
+        width: 500px;
+    }
+
+    .main-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+</style>
+
+
+
+@section Scripts {
+    @{
+        <partial name="_ValidationScriptsPartial"/>
+    }
+}
